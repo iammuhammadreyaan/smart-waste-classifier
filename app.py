@@ -11,8 +11,12 @@ subscription_key = st.secrets["AZURE_KEY"]
 endpoint = st.secrets["AZURE_ENDPOINT"] + "/vision/v3.2/analyze"
 
 
-headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+headers = {
+    "Ocp-Apim-Subscription-Key": subscription_key,
+    "Content-Type": "application/octet-stream"
+}
 params = {"visualFeatures": "Tags,Description"}
+
 
 # Waste classification logic
 def classify_waste(tags):
