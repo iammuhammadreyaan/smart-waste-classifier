@@ -4,8 +4,11 @@ from PIL import Image
 import io
 
 # 🔑 Azure details (replace with your own)
-subscription_key = "6xv33w0aeD22QlDr1IEQXgL8XK8OXhywEuCkfBe6OJcXZThX592tJQQJ99BIACYeBjFXJ3w3AAAFACOG5Iru"
-endpoint = "https://mywasteclassifier.cognitiveservices.azure.com/" + "/vision/v3.2/analyze"
+import os
+import streamlit as st
+
+subscription_key = st.secrets["6xv33w0aeD22QlDr1IEQXgL8XK8OXhywEuCkfBe6OJcXZThX592tJQQJ99BIACYeBjFXJ3w3AAAFACOG5Iru"]
+endpoint = st.secrets["https://mywasteclassifier.cognitiveservices.azure.com/"] + "/vision/v3.2/analyze"
 
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
 params = {"visualFeatures": "Tags,Description"}
